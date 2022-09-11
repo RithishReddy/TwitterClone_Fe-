@@ -1,0 +1,160 @@
+/* .section-top{
+    display: flex;
+}
+
+.post-tweet{
+    border: 1px solid black ;
+    border-bottom: none;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgb(245, 245, 245);
+}
+
+.ant-avatar{
+    width: 40px;
+}
+
+.tweet-user{
+    margin: 15px 30px 0 30px;
+    font-size: 18px;
+}
+
+.message-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    border: 1px solid grey;
+    width: 70%;
+    margin: 10px auto;
+    border-radius: 5px;
+    background-color: white;
+   
+}
+.date{
+    margin-left: 50px;
+}
+
+.all-tweets{
+    max-width: 600px;
+    margin: 0px auto;
+}
+
+.like-component{
+    font-size: 20px;
+}
+
+.count-likes{
+    font-size: 16px;
+    margin: 0 100px 0 2px;
+    font-weight: bold;
+    color:grey;
+
+}
+.comment-component{
+    font-size: 20px;
+} */
+
+
+.tweet-component{
+    /* border: 1px solid  #e6ecf0 */
+    margin-bottom: 10px;
+
+}
+.post-body>img {
+    border-radius: 20px;
+    width: 100%;
+}
+
+.post {
+    max-width: 500px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: flex-start;
+    border-radius: 15px;
+    
+    border: 2px solid  #e6ecf0
+}
+
+.post:hover{
+    /* box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.3);
+    filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.3)); */
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.post-footer {
+    display: flex;
+
+    margin-top: 10px;
+}
+
+.post-header{
+    text-align: start;
+}
+
+.post-header-data{
+    position: relative;
+}
+
+.post-header-data .date{
+    position: absolute;
+    right: 0;
+
+}
+
+
+.post-badge {
+    font-size: 14px !important;
+    color: #50b7f5
+}
+
+.post-headerSpecial {
+    font-weight: 600;
+    font-size: 12px;
+    color: gray;
+}
+
+.post-headerText>h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.post-headerDescription {
+    font-size: 15px;
+    /* margin-bottom: 20px; */
+    padding: 20px;
+    color: #356586;
+}
+
+.post-body {
+    flex: 1;
+    padding: 10px;
+}
+
+
+.post-image {
+    padding: 10px;
+}
+
+.post-image img{
+    width: 63px;
+    border-radius: 40px;
+}
+.count-likes{
+    font-size: 15px;
+    margin: -3px 60px 0 2px;
+    font-weight: bold;
+    color:grey;
+
+}
+
+
+.like-component{
+    font-size: 18px;
+}
+
+.tweet-component{
+    font-size: 18px;
+}

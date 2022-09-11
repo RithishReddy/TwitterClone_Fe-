@@ -1,0 +1,40 @@
+.search-bar{
+    border-radius: 50px;
+    width: 50%;
+  
+}
+
+.ant-layout-header{
+    width:60%;
+    margin: 0 auto;
+}
+
+.search-results{
+    border-radius: 10px;
+    background-color: rgb(233, 234, 234);
+    width: 60%;
+    margin: 3px auto;
+    text-align: left;
+    height :450px;
+    overflow: scroll;
+
+    
+}
+.search-block{
+    padding: 10px;
+    margin-left: 30px;
+
+   
+}
+.search-block img{
+    width: 30px;
+    border-radius: 30px;
+    margin-right: 20px;
+}
+
+.search-icon{
+  
+    /* background-color: whitesmoke; */
+    width: 40px;
+    
+}

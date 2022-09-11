@@ -1,0 +1,17 @@
+.date{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 12px;
+    
+}
+
+.empty-tweets{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.empty-tweets-one{
+    margin-bottom: 20px;
+}

@@ -1,0 +1,150 @@
+.profile-image {
+
+    width: 120px;
+    border-radius: 80px;
+   
+}
+
+.top {
+    text-align: left;
+  
+}
+
+.top-image {
+    padding: 70px;
+    background-color: rgb(138, 143, 143);
+}
+
+.second-image {
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 60px;
+}
+
+.count-tweets{
+   color: gray;
+   font-size: 12px;
+}
+
+
+.user-details {
+
+    display: flex;
+    flex-direction: column;
+    color: gray;
+    flex: 1;
+
+}
+
+.profile-right {
+
+    margin-top: 20px;
+    margin-right: 30px;
+
+}
+
+.user-details .user-name {
+
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 900;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.user-details .user-id {
+    margin-top: 1px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.user-followers {
+    margin-left: 20px;
+}
+
+.profile-box {
+    display: flex;
+    margin-left: 30px;
+
+}
+.top-description{
+    margin: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+.top-description span{
+
+
+    font-size: 16px;
+    font-weight: bolder;
+}
+.top-description-two{
+    /* margin: 20px 0; */
+    margin-left: 20px;
+}
+
+.profile-button {
+    background-color: black;
+    color: whitesmoke;
+    border: none;
+    margin: 2px;
+    padding: 8px 15px;
+    border-radius: 18px;
+    font-weight: bold;
+}
+.profile-box
+
+
+
+.follow-button:hover {
+    background-color: rgb(43, 42, 42);
+}
+
+.unfollow-button {
+    background-color: white;
+    color: black;
+    border: 2px solid gray;
+}
+
+.unfollow-button:hover span {
+    display: none;
+
+
+}
+
+.unfollow-button:hover {
+    background-color: rgb(231, 178, 178);
+    color: red;
+    border: 2px solid rgb(240, 150, 150);
+
+}
+
+.unfollow-button:hover:before {
+    background-color: rgb(231, 178, 178);
+    content: "UnFollow";
+}
+
+.logout-button{
+    background-color: rgb(66, 109, 188);
+    padding: 5px 10px;
+    color: whitesmoke;
+    border-radius: 8px;
+    border: none;
+}
+
+/* .user-tweets{
+    max-width: 400px;
+    
+}
+
+.message-content{
+    height: 80px;
+}
+
+.ant-avatar{
+    width: 40px;
+    height: 10px;
+} */

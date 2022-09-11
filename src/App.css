@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+ 
+  display: flex;
+  min-height: 100vh;
+  border-left: 1px solid rgb(209, 204, 204);
+  border-right: 1px solid rgb(209, 204, 204);
 }
 
 .App-logo {
@@ -28,6 +33,9 @@
   color: #61dafb;
 }
 
+.space{
+  height:30px
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +44,5 @@
     transform: rotate(360deg);
   }
 }
+
+

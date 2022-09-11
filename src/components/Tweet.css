@@ -1,0 +1,14 @@
+
+
+.ant-modal-content{
+    border-radius: 12px;
+}
+/* .ant-btn-primary span{
+   display: none;
+}
+.ant-btn-primary::after{
+    content: "Tweet";
+} */
+.ant-btn{
+    border-radius: 6px;
+}
