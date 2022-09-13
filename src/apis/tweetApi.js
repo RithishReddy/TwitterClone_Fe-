@@ -15,6 +15,21 @@ export const getTweets = async ({queryKey}) => {
   return result
 };
 
+export const getTweetById = async ({queryKey}) => {
+  const result = await axios.get(
+    
+    `http://localhost:3001/api/v1/tweets/user?${queryKey[1]}`,
+    {
+      headers: {
+        Authorization: localStorage.getItem("google-auth-token")
+          ? "Bearer " + localStorage.getItem("google-auth-token")
+          : "",
+      },
+    }
+  );
+  return result
+};
+
 
 // `http://localhost:3001/api/v1/tweets?user_id=${123}`
 // "http://localhost:3001/api/v1/tweets?show=all",

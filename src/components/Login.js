@@ -36,6 +36,8 @@ export default function Login() {
     console.log("hey", data?.data.isPresent);
     if (!isLoading && data?.data) {
       if (data?.data.isPresent) {
+        localStorage.getItem("last_url")?navigate(localStorage.getItem("last_url"))
+        :
         navigate("/Home");
       } else {
         if (userData.email) {

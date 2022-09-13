@@ -16,6 +16,20 @@ import { auth } from "../Firebase/firebase";
 const { TabPane } = Tabs;
 
 export const Profile = () => {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { user_email } = useParams();
@@ -116,13 +130,10 @@ export const Profile = () => {
     );
   };
 
-  const handleLogOut=()=>{
-
+  const handleLogOut = () => {
     auth.signOut();
-    window.location.reload(false)
-   
-
-  }
+    window.location.reload(false);
+  };
 
   const tweets = userTweets?.data;
   const likedTweets = userLikedTweets?.data;
@@ -155,15 +166,19 @@ export const Profile = () => {
             <div className="user-bio">{user.bio}</div>
             <div className="user-joined">
               <img
-                style={{ width: "20px" }}
-                src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/256/calendar-icon.png"
+                style={{ width: "16px" }}
+                src="https://cdn-icons-png.flaticon.com/512/42/42446.png"
                 alt="calender"
               />
               <span className="user__joined--text">
-                Joined{" "}
-                {user.createdAt.slice(0, 10) +
-                  " " +
-                  user.createdAt.slice(11, 16)}
+                {" "}Joined{" "}
+                {
+                  months[user.updatedAt.slice(6, 7) - 1] +
+                    " " +
+                    user.updatedAt.slice(0, 4)
+
+                 
+                }
               </span>
             </div>
 
@@ -180,7 +195,11 @@ export const Profile = () => {
           </div>
           <div className="profile-right">
             {user_email === userData.email ? (
-              <div><button className="logout-button" onClick={handleLogOut}>Logout</button></div>
+              <div>
+                <button className="logout-button" onClick={handleLogOut}>
+                  Logout
+                </button>
+              </div>
             ) : !checkFollowed.data ? (
               <button
                 className="profile-button follow-button"

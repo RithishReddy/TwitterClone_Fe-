@@ -11,12 +11,13 @@ export const Protected = ({ children }) => {
     ["validateUser", userData?.email],
     validateUser
   );
-  if(!userData.email){
-     return navigate("/")
-  }
   if(isLoading){
     return <h1>Loading...</h1>
   }
+  if(!userData.email){
+     return navigate("/")
+  }
+ 
   if(data?.data.isPresent){
     return children
   }

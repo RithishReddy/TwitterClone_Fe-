@@ -13,13 +13,29 @@ import { useQuery } from "@tanstack/react-query";
 
 import "./Post.css";
 import { getLikes, checkUserLiked } from "../apis/likeApi";
+import { Link } from "react-router-dom";
+import { getCommentsCount } from "../apis/commentApi";
 
 export const Post = ({ details }) => {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const queryClient = useQueryClient();
   const show = new URLSearchParams({ id: details.id }).toString();
   const userLiked = new URLSearchParams({ tweet_id: details.id }).toString();
-
-
+  const commentParam = new URLSearchParams({ tweet_id: details.id }).toString();
+  console.log(commentParam);
 
   const { data, isError, error, isLoading, isFetched } = useQuery(
     ["likes", show],
@@ -32,6 +48,13 @@ export const Post = ({ details }) => {
     error: checkLikederror,
     isLoading: checkLikedisLoading,
   } = useQuery(["user-liked", userLiked], checkUserLiked);
+
+  const {
+    data: commentsCount,
+    isError: commentsCountisError,
+    error: commentsCounterror,
+    isLoading: commentsCountisLoading,
+  } = useQuery(["user-comments", commentParam], getCommentsCount);
 
   const likeMutation = useMutation((data) => {
     return axios.post("http://localhost:3001/api/v1/like", data, {
@@ -50,13 +73,12 @@ export const Post = ({ details }) => {
     });
   });
 
-  if (isLoading || checkLikedisLoading ) {
+  if (isLoading || checkLikedisLoading) {
     return <h2>Loading...</h2>;
   }
   if (isError || checkLikedisError) {
     return <h2>Error:{error}</h2>;
   }
-
 
   const handleUnLike = () => {
     dislikeMutation.mutate(
@@ -70,10 +92,7 @@ export const Post = ({ details }) => {
   };
 
   const handleLike = () => {
-
-
     likeMutation.mutate(
-
       { tweet_id: details.id },
       {
         onSuccess: async () => {
@@ -83,7 +102,6 @@ export const Post = ({ details }) => {
     );
   };
 
-
   return (
     <>
       <div className="tweet-component">
@@ -92,28 +110,38 @@ export const Post = ({ details }) => {
             <img src={details.user.image} alt="profile-pic" />
           </div>
           <div className="post-body">
-            <div className="post-header">
-              <div className="post-headerText">
-                <h3 className="post-header-data">
-                  {details.user.name}{" "}
-                  <span className="post-headerSpecial">
-                    @{details.user.user_name}
-                  </span>
-                  <span className="date">
-                    {" "}
-                    {details.updatedAt.slice(0, 10) +
-                      "  " +
-                      details.updatedAt.slice(11, 16)}
-                  </span>
-                </h3>
+            <Link
+              key={details.id}
+              to={`../${details.user.email}/status/${details.id}`}
+            >
+              <div className="post-header">
+                <div className="post-headerText">
+                  <h3 className="post-header-data">
+                    <span className="post-header-name">
+                      {details.user.name}
+                    </span>{" "}
+                    <span className="post-headerSpecial">
+                      @{details.user.user_name}
+                    </span>
+                    <span className="date">
+                      {" ~ "}
+                      {
+                        months[details.updatedAt.slice(6, 7) - 1] +
+                          " " +
+                          details.updatedAt.slice(8, 10)
+
+                        // details.updatedAt.slice(11, 16)
+                      }
+                    </span>
+                  </h3>
+                </div>
+                <div className="post-headerDescription">
+                  <p>{details.message}</p>
+                </div>
               </div>
-              <div className="post-headerDescription">
-                <p>{details.message}</p>
-              </div>
-            </div>
+            </Link>
             <div className="post-footer">
-              {checkLiked.data
-               ? (
+              {checkLiked.data ? (
                 <HeartTwoTone
                   className="like-component"
                   onClick={handleUnLike}
@@ -125,7 +153,16 @@ export const Post = ({ details }) => {
                 />
               )}
               <span className="count-likes"> {data.data.count}</span>
-              <MessageOutlined className="comment-component" />
+              <Link
+                key={details.id}
+                to={`../${details.user.email}/status/${details.id}`}
+              >
+                <MessageOutlined className="comment-component" />
+                <span className="count-likes">
+                  {" "}
+                  {commentsCount?.data?.count}
+                </span>
+              </Link>
             </div>
           </div>
         </div>

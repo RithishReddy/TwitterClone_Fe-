@@ -1,0 +1,48 @@
+.comment-section {
+    width: 50%;
+    margin: auto;
+}
+
+.ant-comment-content-detail {
+    text-align: left;
+}
+
+
+.comment-input {
+    flex: 3.5;
+}
+
+.comment-text {
+    /* width: 50%; */
+
+    margin-top: 20px;
+    width: 80%;
+
+
+}
+
+.post-comment {
+    display: flex;
+    justify-content: center;
+}
+
+.user-image {
+    flex: 1;
+   display: flex;
+   justify-content: flex-end;
+   margin-right: 10px;
+   align-items: center;
+}
+
+.user-image img {
+
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+
+
+}
+
+.main-section {
+    margin-top: 30px;
+}

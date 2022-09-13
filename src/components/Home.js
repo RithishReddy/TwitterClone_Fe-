@@ -9,7 +9,6 @@ import { NavLink } from "react-router-dom";
 
 export const Home = () => {
   const [userData, setuserData] = useDetails();
-  const  months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
   const show = new URLSearchParams({ show: "all" }).toString();
 
@@ -45,7 +44,9 @@ export const Home = () => {
           <div className="empty-tweets-one">
             Welcome <b>{userData.displayName}</b>
           </div>
-          <div className="empty-tweets-two">Follow <NavLink to="/search"> users </NavLink> for Tweets</div>
+          <div className="empty-tweets-two">
+            Follow <NavLink to="/search"> users </NavLink> for Tweets
+          </div>
         </div>
       )}
     </>

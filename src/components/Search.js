@@ -27,9 +27,10 @@ export function Search() {
   );
   console.log(result, result.length);
 
-  console.log("hey", data);
+
   const profile = data?.data?.profile;
   const tweets = data?.data?.tweets;
+  console.log("hey", tweets);
 
   return (
     <>
@@ -72,6 +73,7 @@ export function Search() {
             {!isLoading &&
               tweets.map((data) => {
                 return (
+                  <Link key={data.id} to={`../${data.user.email}/status/${data.id}`}>
                   <div key={data.id} className="search-block">
                     <img
                       className="search-icon"
@@ -81,6 +83,7 @@ export function Search() {
                     <b>#</b>
                     {data.message}{" "}
                   </div>
+                  </Link>
                 );
               })}
           </div>

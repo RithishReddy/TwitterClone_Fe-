@@ -1,5 +1,5 @@
 import { Button, Modal } from "antd";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Tweet.css";
 import { Input } from "antd";
@@ -20,9 +20,16 @@ export const Tweet = () => {
       },
     });
   });
-  if (mutation.isSuccess) {
-    navigate("/Home");
-  }
+  // if (mutation.isSuccess) {
+  //   navigate("/Home");
+  // }
+  useEffect(() => {
+  
+    if (mutation.isSuccess) {
+      navigate("/Home");
+    }
+  }, [mutation.isSuccess])
+  
   if (mutation.isError) {
     return <h2>Error:{mutation.error.message}</h2>;
   }
@@ -33,18 +40,21 @@ export const Tweet = () => {
 
   const handleOk = (event) => {
     if (tweet) {
-      mutation.mutate({ message: tweet });
+      mutation.mutate({ message: tweet },{onSuccess:()=>{
+        setTweet("");
+        setIsModalVisible(false);
+      }});
     }
-    event.preventDefault();
-    setTweet("");
-    setIsModalVisible(false);
+    // event.preventDefault();
+    // setTweet("");
+    // setIsModalVisible(false);
   };
 
   const handleTweet = (event) => {
     setTweet(event.target.value);
   };
   const handleCancel = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     setTweet("");
     setIsModalVisible(false);
   };

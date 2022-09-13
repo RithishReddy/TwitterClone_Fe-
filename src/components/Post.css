@@ -86,7 +86,7 @@
 
 .post-footer {
     display: flex;
-
+    align-items: center;
     margin-top: 10px;
 }
 
@@ -98,9 +98,15 @@
     position: relative;
 }
 
+.post-header-name{
+    font-weight: bolder;
+}
+
 .post-header-data .date{
     position: absolute;
-    right: 0;
+    right: 10px;
+    margin-left: 2px;
+    color: gray;
 
 }
 
@@ -124,7 +130,7 @@
 .post-headerDescription {
     font-size: 15px;
     /* margin-bottom: 20px; */
-    padding: 20px;
+    padding: 10px 2px;
     color: #356586;
 }
 
@@ -144,7 +150,7 @@
 }
 .count-likes{
     font-size: 15px;
-    margin: -3px 60px 0 2px;
+    margin: 1px 60px 0 3px;
     font-weight: bold;
     color:grey;
 
