@@ -35,9 +35,8 @@ export const Post = ({ details }) => {
   const show = new URLSearchParams({ id: details.id }).toString();
   const userLiked = new URLSearchParams({ tweet_id: details.id }).toString();
   const commentParam = new URLSearchParams({ tweet_id: details.id }).toString();
-  console.log(commentParam);
 
-  const { data, isError, error, isLoading, isFetched } = useQuery(
+  const { data, isError, error, isLoading } = useQuery(
     ["likes", show],
     getLikes
   );
@@ -125,13 +124,9 @@ export const Post = ({ details }) => {
                     </span>
                     <span className="date">
                       {" ~ "}
-                      {
-                        months[details.updatedAt.slice(6, 7) - 1] +
-                          " " +
-                          details.updatedAt.slice(8, 10)
-
-                        // details.updatedAt.slice(11, 16)
-                      }
+                      {months[details.updatedAt.slice(6, 7) - 1] +
+                        " " +
+                        details.updatedAt.slice(8, 10)}
                     </span>
                   </h3>
                 </div>

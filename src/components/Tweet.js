@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./Tweet.css";
 import { Input } from "antd";
 import { useMutation } from "@tanstack/react-query";
-import { useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 const { TextArea } = Input;
 
@@ -20,14 +19,13 @@ export const Tweet = () => {
       },
     });
   });
-  // if (mutation.isSuccess) {
-  //   navigate("/Home");
-  // }
+
   useEffect(() => {
   
     if (mutation.isSuccess) {
       navigate("/Home");
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mutation.isSuccess])
   
   if (mutation.isError) {
@@ -45,20 +43,16 @@ export const Tweet = () => {
         setIsModalVisible(false);
       }});
     }
-    // event.preventDefault();
-    // setTweet("");
-    // setIsModalVisible(false);
+   
   };
 
   const handleTweet = (event) => {
     setTweet(event.target.value);
   };
   const handleCancel = (event) => {
-    // event.preventDefault();
     setTweet("");
     setIsModalVisible(false);
   };
-  console.log(tweet);
 
   return (
     <>

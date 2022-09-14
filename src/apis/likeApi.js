@@ -15,7 +15,6 @@ export const getLikes = async ({queryKey}) => {
 };
 
 export const checkUserLiked = async ({queryKey}) => {
-  console.log("data",localStorage.getItem)
   const result = await axios.get(
     `http://localhost:3001/api/v1/like/check?${queryKey[1]}`,
     {

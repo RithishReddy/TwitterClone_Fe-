@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import { Button, Form, Input } from "antd";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import axios from "axios";
@@ -8,25 +8,23 @@ import "./SignUp.css";
 
 export function Signup() {
   const navigate = useNavigate();
-  
+
   const [userData, setuserData] = useDetails();
-  const [name,setName] = useState(userData.displayName)
-  const [email,setEmail] = useState(userData.email)
-  const [profile,setProfile] = useState(userData.image)
+  const [name, setName] = useState(userData.displayName);
+  const [email, setEmail] = useState(userData.email);
+  const [profile, setProfile] = useState(userData.image);
   const [form] = Form.useForm();
   console.log(userData);
 
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
 
-  const handleName=(e)=>{
-    setName(e.target.value)
-  }
-
-  const handleProfile=(e)=>{
-    setProfile(e.target.value)
-  }
+  const handleProfile = (e) => {
+    setProfile(e.target.value);
+  };
 
   const submitForm = (values) => {
-    console.log("Success:", values);
     mutation.mutate(
       {
         user_name: values.user_name,
@@ -69,9 +67,9 @@ export function Signup() {
         }}
         initialValues={{
           remember: true,
-          name:name,
-          email:email,
-          profile:profile
+          name: name,
+          email: email,
+          profile: profile,
         }}
         onFinish={submitForm}
         onFinishFailed={onFinishFailed}
@@ -87,7 +85,7 @@ export function Signup() {
             },
           ]}
         >
-          <Input onChange={handleName}  value={name}  />
+          <Input onChange={handleName} value={name} />
         </Form.Item>
 
         <Form.Item
@@ -114,11 +112,7 @@ export function Signup() {
             },
           ]}
         >
-          <Input
-            disabled={true}
-          
-            value={email}
-          />
+          <Input disabled={true} value={email} />
         </Form.Item>
 
         <Form.Item

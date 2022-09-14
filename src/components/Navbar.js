@@ -63,17 +63,17 @@ export const Navbar = () => {
         <Menu
           mode="inline"
           style={{ paddingTop: "30px" }}
-          selectedKeys={[current]}
+           selectedKeys={[current]}
         >
           {[
-            ["/Home", " ", AntLink],
+            ["icon", "", AntLink],
             ["/Home", "Home", HomeOutlined],
             ["/search", "Search", SearchOutlined],
             [`/profile/${userData.email}`, "Profile", UserOutlined],
             ["/compose/tweet", "Tweet", MessageOutlined],
           ].map((navItem, idx) => (
-            <Menu.Item key={idx} icon={React.createElement(navItem[2])}>
-              <NavLink className="sidebar-text" to={navItem[0]}>
+            <Menu.Item key={navItem[0]} icon={React.createElement(navItem[2])}>
+              <NavLink className="sidebar-text" to={idx===0?"/Home":navItem[0]}>
                 {navItem[1]}
               </NavLink>
             </Menu.Item>
@@ -141,7 +141,6 @@ export const Navbar = () => {
                 </Protected>
               }
             />
-            {/* <Route path="/profile" element={<Protected><Profile/></Protected>} /> */}
             <Route
               path="/profile/:user_email"
               element={

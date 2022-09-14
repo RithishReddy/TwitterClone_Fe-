@@ -1,5 +1,4 @@
-import { Avatar, Button, Comment, Form, Input, List } from "antd";
-import moment from "moment";
+import { Button, Comment, Form, Input } from "antd";
 import React, { useState } from "react";
 import axios from "axios";
 import "./UserTweet.css";
@@ -7,7 +6,7 @@ import { useDetails } from "../store/user";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getComments } from "../apis/commentApi";
 import { useParams } from "react-router";
-import { getTweetById, getTweets } from "../apis/tweetApi";
+import { getTweetById } from "../apis/tweetApi";
 import { Post } from "./Post";
 const { TextArea } = Input;
 export const UserTweet = () => {
@@ -32,8 +31,6 @@ export const UserTweet = () => {
   const userComments = new URLSearchParams({ id: tweet_id }).toString();
   const userTweet = new URLSearchParams({ tweet_id: tweet_id }).toString();
   const [value, setValue] = useState([]);
-  // const [submitting, setSubmitting] = useState(false);
-  // const [value, setValue] = useState("");
 
   const {
     data: tweets,
@@ -82,11 +79,6 @@ export const UserTweet = () => {
     }
   };
 
-  console.log("getTweets", tweets?.data);
-
-  console.log(comments?.data[0]?.comment);
-
-  console.log("comments", comments?.data);
   return (
     <>
       <div className="main-section">

@@ -4,7 +4,6 @@ import "./Home.css";
 import { getTweets } from "../apis/tweetApi";
 import { useQuery } from "@tanstack/react-query";
 import { useDetails } from "../store/user";
-import { Navigate } from "react-router";
 import { NavLink } from "react-router-dom";
 
 export const Home = () => {
@@ -24,7 +23,6 @@ export const Home = () => {
     return <h2>Error:{error}</h2>;
   }
   const details = data?.data;
-  console.log("heyaaa", details);
 
   return (
     <>

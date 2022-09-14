@@ -16,7 +16,7 @@ export default function Login() {
     { enabled: false }
   );
 
-  console.log("heyaa", data);
+  // console.log("heyaa", data);
 
   useEffect(() => {
     if (userData.email) {
@@ -31,14 +31,11 @@ export default function Login() {
   }, [userData]);
 
   useEffect(() => {
-    console.log("test1", data);
-
-    console.log("hey", data?.data.isPresent);
     if (!isLoading && data?.data) {
       if (data?.data.isPresent) {
-        localStorage.getItem("last_url")?navigate(localStorage.getItem("last_url"))
-        :
-        navigate("/Home");
+        localStorage.getItem("last_url")
+          ? navigate(localStorage.getItem("last_url"))
+          : navigate("/Home");
       } else {
         if (userData.email) {
           navigate("/signup");
@@ -56,14 +53,6 @@ export default function Login() {
         if (tokenResult) {
           localStorage.setItem("google-auth-token", tokenResult.token);
         }
-
-        console.log(tokenResult);
-
-        // const user = result.user;
-        // console.log("hii", user.email);
-        // setuserData({ displayName: user.displayName, email: user.email });
-        // ...
-        // console.log("hello", userData.email);
       })
       .catch((error) => {
         // Handle Errors here.

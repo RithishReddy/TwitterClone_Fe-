@@ -14,27 +14,27 @@ import { getTweets } from "../apis/tweetApi";
 export const Post = () => {
   const [searchParams] = useSearchParams();
   const show = searchParams.get("show");
-
   const [like, setLike] = useState(false);
 
   const handleLike = () => {
     setLike((current) => !current);
   };
 
-  console.log(like);
-
   const { data, isError, error, isLoading } = useQuery(
     ["tweets", show],
     getTweets
   );
+
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
+
   if (isError) {
     return <h2>Error:{error.message}</h2>;
   }
+
   const details = data?.data;
-  console.log(details);
+
   return (
     <>
       <div className="all-tweets">
@@ -54,7 +54,6 @@ export const Post = () => {
                     />
                   }
                 />
-                {console.log(data)}
                 <div className="tweet-user">
                   {data.user.name} - {data.user.user_name}{" "}
                   <span>

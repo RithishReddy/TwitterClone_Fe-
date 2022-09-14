@@ -34,9 +34,6 @@ export const Profile = () => {
   const navigate = useNavigate();
   const { user_email } = useParams();
   const [userData, setuserData] = useDetails();
-  console.log("hey", user_email);
-  console.log("heya", userData.email);
-  const [follow, setFollow] = useState(false);
 
   const showUser = new URLSearchParams({
     show: "user",
@@ -171,14 +168,11 @@ export const Profile = () => {
                 alt="calender"
               />
               <span className="user__joined--text">
-                {" "}Joined{" "}
-                {
-                  months[user.updatedAt.slice(6, 7) - 1] +
-                    " " +
-                    user.updatedAt.slice(0, 4)
-
-                 
-                }
+                {" "}
+                Joined{" "}
+                {months[user.updatedAt.slice(6, 7) - 1] +
+                  " " +
+                  user.updatedAt.slice(0, 4)}
               </span>
             </div>
 
